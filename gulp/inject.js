@@ -6,8 +6,7 @@ var $ = require('gulp-load-plugins')();
 var wiredep = require('wiredep').stream;
 
 //
-//
-//
+// Inject CSS, JS, Bower dependencies to annotated HTML files
 //
 
 gulp.task('inject', ['styles'], function () {
@@ -31,5 +30,5 @@ gulp.task('inject', ['styles'], function () {
     .pipe($.inject(injectStyles, injectOptions))
     .pipe($.inject(injectScripts, injectOptions))
     .pipe(wiredep(wiredepOptions))
-    .pipe(gulp.dest(config.tmp + '/serve'));
+    .pipe(gulp.dest(config.serve));
 });

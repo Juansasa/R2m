@@ -1,19 +1,19 @@
 <!doctype html>
-<html class="no-js" ng-app="cssTest">
+<html class="no-js" ng-app="app">
   <head>
     <meta charset="utf-8">
-    <title>cssTest</title>
+    <title>R2m front-end</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
+    <!-- build:css({.tmp/serve,webapp}) styles/vendor.css -->
       <!-- bower:css -->
         <!-- run `gulp wiredep` to automaticaly populate bower styles dependencies -->
       <!-- endbower -->
     <!-- endbuild -->
 
-    <!-- build:css({.tmp/serve,src}) styles/app.css -->
+    <!-- build:css({.tmp/serve,webapp}) styles/app.css -->
       <!-- inject:css -->
         <!-- css files will be automaticaly insert here -->
       <!-- endinject -->
@@ -36,13 +36,13 @@
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
 
-    <!-- build:js(src) scripts/vendor.js -->
+    <!-- build:js(webapp) scripts/vendor.js -->
       <!-- bower:js -->
         <!-- run `gulp wiredep` to automaticaly populate bower script dependencies -->
       <!-- endbower -->
     <!-- endbuild -->
 
-    <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
+    <!-- build:js({.tmp/serve,.tmp/partials,webapp}) scripts/app.js -->
       <!-- inject:js -->
         <!-- js files will be automaticaly insert here -->
       <!-- endinject -->

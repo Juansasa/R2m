@@ -5,12 +5,13 @@ module.exports = function() {
     var tmp = '.tmp';
     var dist = 'dist';
     var assets = appPath + '/assets';
-    var components = appPath + '/components';
     var bowerDir = './bower_components';
+    var serveDir = tmp + '/serve';
 
     var config = {
         app: appPath,
         tmp: tmp,
+        serve: serveDir,
         dist: dist,
 
         bower: {
@@ -26,20 +27,19 @@ module.exports = function() {
                 assets + '/sass/mixins/**/_*.scss',
                 appPath + '/**/_*.scss',
             ],
-            dest: tmp + '/serve/app/'
+            dest: serveDir + '/app/'
         },
 
         css: {
             files: [
-                assets + '/css/**/*.css',
-                components + '/**/*.css',
+                appPath + '/**/*.css',
                 tmp + '/**/*.css'
             ]
         },
 
         js: {
             files: [
-                // Change order of files if necessary
+                // ordering of modules is handled by angular-filesort plugin
                 appPath + '/**/*.js',
                 appPath + '/**/*.constant.js',
                 appPath + '/**/*.service.js',
@@ -48,6 +48,29 @@ module.exports = function() {
                 '!' + appPath + '/**/*.mock.js',
                 '!' + appPath + '/**/*.spec.js',
             ]
+        },
+
+        images: {
+            files: [assets + '/images/**'],
+            dest: dist + '/assets/images'
+        },
+
+        fonts: {
+            files: [assets + '/fonts/**', bowerDir + '/**'],
+            dest: dist + '/fonts/'
+        },
+
+        misc: {
+            files: [appPath + '/*.{ico,txt}', appPath + '/.htaccess']
+        },
+
+        templatecache: {
+            files: [
+                appPath + '/**/*.html',
+                tmp + '/**/*.html'
+            ],
+            dest: tmp + '/partials',
+            moduleName: 'app'
         }
     };
 
