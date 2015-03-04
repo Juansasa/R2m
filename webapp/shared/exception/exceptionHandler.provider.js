@@ -3,7 +3,7 @@
 
     angular
         .module('exception')
-        .provider('fmuExceptionHandler', exceptionHandlerProvider)
+        .provider('customExceptionHandler', exceptionHandlerProvider)
         .config(config);
 
     function exceptionHandlerProvider() {
@@ -28,9 +28,9 @@
     config.$inject = ['$provide'];
 
     /*@ngInject*/
-    function extendExceptionHandler($delegate, fmuExceptionHandler, logger) {
+    function extendExceptionHandler($delegate, customExceptionHandler, logger) {
         return function(exception, cause) {
-            var appErrorPrefix = fmuExceptionHandler.config.appErrorPrefix || '';
+            var appErrorPrefix = customExceptionHandler.config.appErrorPrefix || '';
             var errorData = {exception: exception, cause: cause};
             exception.message = appErrorPrefix + exception.message;
             $delegate(exception, cause);
@@ -40,5 +40,5 @@
             logger.error(exception.message, errorData);
         };
     }
-    extendExceptionHandler.$inject = ['$delegate', 'fmuExceptionHandler', 'logger'];
+    extendExceptionHandler.$inject = ['$delegate', 'customExceptionHandler', 'logger'];
 })();

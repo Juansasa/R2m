@@ -6,7 +6,5 @@
      *
      * Resposible for register routes
      */
-    angular.module('router', [
-        'ui.router'
-    ]);
+    angular.module('router', ['ui.router', 'logger']);
 })();

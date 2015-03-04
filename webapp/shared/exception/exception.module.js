@@ -3,7 +3,5 @@
 
     /* recommended */
     angular
-        .module('exception', [
-            'logger'
-        ]);
+        .module('exception', ['logger']);
 })();
