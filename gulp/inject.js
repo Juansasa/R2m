@@ -9,18 +9,25 @@ var wiredep = require('wiredep').stream;
 // Inject CSS, JS, Bower dependencies to annotated HTML files
 //
 
-gulp.task('inject', ['styles', 'compile-po'], function () {
+gulp.task('inject', ['styles'], function() {
 
-  var injectStyles = gulp.src(config.css.files, { read: false });
-  var injectScripts = gulp.src(config.js.files).pipe($.angularFilesort());
-  var injectOptions = {
-    ignorePath: [config.webapp, config.serve],
-    addRootSlash: false
-  };
+    function injectStyles() {
+        return gulp.src(config.css.files, {
+            read: false
+        });
+    }
 
-  return gulp.src(config.webapp + '/*.html')
-    .pipe($.inject(injectStyles, injectOptions))
-    .pipe($.inject(injectScripts, injectOptions))
-    .pipe(wiredep(config.wiredepOptions()))
-    .pipe(gulp.dest(config.serve));
+    function injectScripts() {
+        return gulp.src(config.js.files).pipe($.angularFilesort());
+    }
+    var injectOptions = {
+        ignorePath: [config.webapp, config.serve],
+        addRootSlash: false
+    };
+
+    return gulp.src([config.webapp + '/*.html'])
+        .pipe($.inject(injectStyles(), injectOptions))
+        .pipe($.inject(injectScripts(), injectOptions))
+        .pipe(wiredep(config.wiredepOptions()))
+        .pipe(gulp.dest(config.serve));
 });

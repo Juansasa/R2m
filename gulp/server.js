@@ -29,7 +29,7 @@ function browserSyncInit(baseDir, files, browser) {
                 middleware: middleware,
                 routes: routes
             },
-            files: [config.serve + '/**/*.{html,css,sass,js}'],
+            files: files,
             watchOptions: {
                 debounceDelay: 1000
             },
@@ -53,14 +53,7 @@ gulp.task('serve', ['watch'], function() {
     browserSyncInit([
         config.serve,
         config.webapp
-    ], [
-        config.serve + '/**/*.css',
-        config.webapp + '/**/*.js',
-        config.webapp + '/assets/images/**/*',
-        config.tmp + '/serve/*.html',
-        config.tmp + '/serve/**/*.html',
-        config.webapp + '/**/*.html'
-    ]);
+    ], [config.serve + '/**']);
 });
 
 gulp.task('serve:dist', ['build'], function() {
