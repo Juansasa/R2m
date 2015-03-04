@@ -78,9 +78,9 @@ module.exports = function() {
         },
 
         translation: {
-            dir: assets + '/translations',
+            dir: assets + '/text-entries',
             files: [appPath + '/**/*.{html,js}'],
-            dest: assets + '/translations',
+            dest: appPath + '/shared/translation',
             modulename: appModuleName
         },
 
@@ -96,7 +96,6 @@ module.exports = function() {
 
         wiredepOptions: getWiredepOptions
     };
-
 
     function getWiredepOptions() {
         return {
