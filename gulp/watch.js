@@ -5,9 +5,9 @@ var config = require('./config')();
 
 gulp.task('watch', ['inject'], function() {
     gulp.watch([
-        config.app + '/**/*.html',
-        config.app + '/**/*.scss',
-        config.app + '/**/*.js',
+        config.webapp + '/**/*.html',
+        config.webapp + '/**/*.scss',
+        config.webapp + '/**/*.js',
         'bower.json'
     ], ['inject']);
 });

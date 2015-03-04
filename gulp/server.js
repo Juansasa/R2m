@@ -11,7 +11,7 @@ function browserSyncInit(baseDir, files, browser) {
     var routes = null;
 
     // Make sure bower_components is correctly routed
-    if (baseDir === config.app || (util.isArray(baseDir) && baseDir.indexOf(config.app) !== -1)) {
+    if (baseDir === config.webapp || (util.isArray(baseDir) && baseDir.indexOf(config.webapp) !== -1)) {
         routes = {
             '/bower_components': 'bower_components'
         };
@@ -52,14 +52,14 @@ function browserSyncInit(baseDir, files, browser) {
 gulp.task('serve', ['watch'], function() {
     browserSyncInit([
         config.serve,
-        config.app
+        config.webapp
     ], [
         config.serve + '/**/*.css',
-        config.app + '/**/*.js',
-        config.app + '/assets/images/**/*',
+        config.webapp + '/**/*.js',
+        config.webapp + '/assets/images/**/*',
         config.tmp + '/serve/*.html',
         config.tmp + '/serve/**/*.html',
-        config.app + '/**/*.html'
+        config.webapp + '/**/*.html'
     ]);
 });
 

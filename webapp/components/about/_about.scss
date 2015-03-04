@@ -1,4 +1,7 @@
 .about {
-	background-color: red;
-	@include container();
+    background-color: red;
+    @include container(12);
+    @include respond-to("tablet") {
+        background-color: green;
+    }
 }

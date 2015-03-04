@@ -24,8 +24,8 @@ var partialFiles = gulp.src(config.scss.partials, {
 
 var injectOptions = {
     transform: function(filePath) {
-    /* filePath = filePath.replace(config.app + '/app/', '');
-        filePath = filePath.replace(config.app + '/components/', '../components/');*/
+    /* filePath = filePath.replace(config.webapp + '/app/', '');
+        filePath = filePath.replace(config.webapp + '/components/', '../components/');*/
         return '@import \'' + filePath + '\';';
     },
     starttag: '// import',
@@ -37,7 +37,7 @@ gulp.task('styles', function() {
   return gulp.src(config.scss.main)
     .pipe(wiredep(config.wiredepOptions()))
     .pipe($.inject(partialFiles, injectOptions))
-    .pipe(gulp.dest(config.scss.dest)) 
+    //.pipe(gulp.dest(config.scss.dest)) 
     .pipe($.sass(sassCompilerOptions))
   .pipe($.autoprefixer())
     .on('error', function handleError(err) {

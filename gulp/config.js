@@ -1,5 +1,8 @@
 'use strict';
 
+// Extract the module name from package.json
+var appModuleName = require('./../package').name;
+
 module.exports = function() {
     var appPath = 'webapp';
     var tmp = '.tmp';
@@ -7,9 +10,10 @@ module.exports = function() {
     var assets = appPath + '/assets';
     var bowerDir = './bower_components';
     var serveDir = tmp + '/serve';
+    var unittestDir = './unit-tests';
 
     var config = {
-        app: appPath,
+        webapp: appPath,
         tmp: tmp,
         serve: serveDir,
         dist: dist,
@@ -27,7 +31,7 @@ module.exports = function() {
                 assets + '/sass/mixins/**/_*.scss',
                 appPath + '/**/_*.scss',
             ],
-            dest: serveDir + '/app'
+            dest: serveDir + '/app/'
         },
 
         css: {
@@ -70,8 +74,25 @@ module.exports = function() {
                 tmp + '/**/*.html'
             ],
             dest: tmp + '/partials',
-            moduleName: 'app'
+            moduleName: appModuleName
         },
+
+        translation: {
+            dir: assets + '/translations',
+            files: [appPath + '/**/*.{html,js}'],
+            dest: assets + '/translations',
+            modulename: appModuleName
+        },
+
+        karmaconfig: {
+            dir: unittestDir,
+            configfile: unittestDir + '/karma.conf.js',
+        },
+
+        proxies: [{
+            from: '/api/user',
+            to: 'http://test.com/user' // Just an example backend proxy
+        }],
 
         wiredepOptions: getWiredepOptions
     };
@@ -81,7 +102,7 @@ module.exports = function() {
         return {
             bowerJson: config.bower.json,
             directory: config.bower.directory,
-            exclude: [/bootstrap-sass-official/, /bootstrap\.css/, /bootstrap\.css/, /foundation\.css/]
+            exclude: [/*/bootstrap-sass-official/, *//bootstrap\.css/, /bootstrap\.css/, /foundation\.css/]
         };
     }
 
