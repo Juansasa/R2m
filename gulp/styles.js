@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var config = require('./config')();
+var wiredep = require('wiredep').stream;
 var $ = require('gulp-load-plugins')();
 
 //
@@ -13,6 +14,7 @@ var $ = require('gulp-load-plugins')();
 //
 
 var sassCompilerOptions = {
+    includePaths: require('node-bourbon').includePaths, // For bourbon-libsass support
     style: 'expanded'
 };
 
@@ -33,8 +35,9 @@ var injectOptions = {
 
 gulp.task('styles', function() {
   return gulp.src(config.scss.main)
+    .pipe(wiredep(config.wiredepOptions()))
     .pipe($.inject(partialFiles, injectOptions))
-    //.pipe(gulp.dest(config.scss.dest)) 
+    .pipe(gulp.dest(config.scss.dest)) 
     .pipe($.sass(sassCompilerOptions))
   .pipe($.autoprefixer())
     .on('error', function handleError(err) {

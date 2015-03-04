@@ -27,7 +27,7 @@ module.exports = function() {
                 assets + '/sass/mixins/**/_*.scss',
                 appPath + '/**/_*.scss',
             ],
-            dest: serveDir + '/app/'
+            dest: serveDir + '/app'
         },
 
         css: {
@@ -71,8 +71,19 @@ module.exports = function() {
             ],
             dest: tmp + '/partials',
             moduleName: 'app'
-        }
+        },
+
+        wiredepOptions: getWiredepOptions
     };
+
+
+    function getWiredepOptions() {
+        return {
+            bowerJson: config.bower.json,
+            directory: config.bower.directory,
+            exclude: [/bootstrap-sass-official/, /bootstrap\.css/, /bootstrap\.css/, /foundation\.css/]
+        };
+    }
 
     return config;
 };

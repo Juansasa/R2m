@@ -1,3 +1,4 @@
 .about {
 	background-color: red;
+	@include container();
 }

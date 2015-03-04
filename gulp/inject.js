@@ -14,21 +14,13 @@ gulp.task('inject', ['styles'], function () {
   var injectStyles = gulp.src(config.css.files, { read: false });
   var injectScripts = gulp.src(config.js.files).pipe($.angularFilesort());
   var injectOptions = {
-    ignorePath: [config.app, config.tmp + '/serve'],
+    ignorePath: [config.app, config.serve],
     addRootSlash: false
-  };
-
-
-  var wiredepOptions = {
-    bowerJson: config.bower.json,
-    directory: config.bower.directory,
-    cwd: 'app/serve',
-    exclude: [/bootstrap-sass-official/, /bootstrap\.css/, /bootstrap\.css/, /foundation\.css/]
   };
 
   return gulp.src(config.app + '/*.html')
     .pipe($.inject(injectStyles, injectOptions))
     .pipe($.inject(injectScripts, injectOptions))
-    .pipe(wiredep(wiredepOptions))
+    .pipe(wiredep(config.wiredepOptions()))
     .pipe(gulp.dest(config.serve));
 });
