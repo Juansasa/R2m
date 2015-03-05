@@ -4,7 +4,8 @@
 	.controller('HomeController', Home);
 
 	/*@ngInject*/
-	function Home($scope) {
+	function Home($scope, $uiViewScroll) {
 		$scope.welcome = 'Welcome home';
+		$uiViewScroll(angular.element(document.querySelector('.home-below')));
 	}
 })();

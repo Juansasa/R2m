@@ -20,6 +20,7 @@ gulp.task('inject', ['styles'], function() {
     function injectScripts() {
         return gulp.src(config.js.files).pipe($.angularFilesort());
     }
+
     var injectOptions = {
         ignorePath: [config.webapp, config.serve],
         addRootSlash: false
@@ -28,6 +29,6 @@ gulp.task('inject', ['styles'], function() {
     return gulp.src([config.webapp + '/*.html'])
         .pipe($.inject(injectStyles(), injectOptions))
         .pipe($.inject(injectScripts(), injectOptions))
-        .pipe(wiredep(config.wiredepOptions()))
+        .pipe(wiredep(config.wiredepOptions))
         .pipe(gulp.dest(config.serve));
 });

@@ -18,17 +18,14 @@ module.exports = function() {
         serve: serveDir,
         dist: dist,
 
-        bower: {
-            json: require('./../bower.json'),
-            directory: bowerDir
-        },
-
         scss: {
             main: assets + '/sass/index.scss',
             partials: [
                 // Files order: config -> variables -> the rest
                 assets + '/sass/configs/**/_*.scss',
+                assets + '/sass/functions/**/_*.scss',
                 assets + '/sass/mixins/**/_*.scss',
+                appPath + '/components/main.scss',
                 appPath + '/**/_*.scss',
             ],
             dest: serveDir + '/app/'
@@ -94,16 +91,13 @@ module.exports = function() {
             to: 'http://test.com/user' // Just an example backend proxy
         }],
 
-        wiredepOptions: getWiredepOptions
-    };
-
-    function getWiredepOptions() {
-        return {
-            bowerJson: config.bower.json,
-            directory: config.bower.directory,
+        wiredepOptions: {
+            bowerJson: require('./../bower.json'),
+            directory: bowerDir,
+            devDependencies: true,
             exclude: [/*/bootstrap-sass-official/, *//bootstrap\.css/, /bootstrap\.css/, /foundation\.css/]
-        };
-    }
+        }
+    };
 
     return config;
 };

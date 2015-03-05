@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+    @include global-box-sizing(border-box);
+    //@include debug-vertical-alignment(); 
+}
+
+.header-nav {
+	$bgColor: lighten(black, 20%);
+	width: 100%;
+	background-color: $bgColor;
+	border-style: solid;
+	border-color: darken($bgColor, 10%);
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	@include rhythmBorderBottom(3px, 0, $ms-down1);
+	ul {
+		margin: 0;
+		padding: 0;
+		li {
+			padding: 1em;
+			display: inline-block;
+			a {
+				color: text-contrast(black, white);
+				text-decoration: none;
+			}
+		}
+	}
+}

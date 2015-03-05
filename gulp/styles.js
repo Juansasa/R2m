@@ -37,9 +37,9 @@ var injectOptions = {
 
 gulp.task('styles', function() {
     return gulp.src(config.scss.main)
-        .pipe(wiredep(config.wiredepOptions()))
+        .pipe(wiredep(config.wiredepOptions))
         .pipe($.inject(partialFiles(), injectOptions))
-        //.pipe(gulp.dest(config.scss.dest)) 
+        .pipe(gulp.dest(config.scss.dest)) 
         .pipe($.sass(sassCompilerOptions))
         .pipe($.autoprefixer())
         .on('error', function handleError(err) {

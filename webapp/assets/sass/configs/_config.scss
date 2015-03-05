@@ -1,4 +1,18 @@
+// Breakpoint responsive defaults
 $breakpoints : (
 	'tablet' : em(640),
 	'desktop' : em(1200)
 );
+
+// Typesettings defaults
+$font-sans: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-serif: Georgia, 'Times New Roman', serif;
+$font-mono: 'Lucida Console', Monaco, monospace;
+$text-color: black;
+$base-vertical-unit: 6px;
+$base-line-multi: 4;
+$base-font-size: 16px;
+$ms-ratio: 1.414;
+$paragraph-indent: true;
+$paragraph-justify: true;
+$load-typesetted: true;
