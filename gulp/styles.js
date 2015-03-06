@@ -18,28 +18,47 @@ var sassCompilerOptions = {
     style: 'expanded'
 };
 
-function partialFiles() {
-    return gulp.src(config.scss.partials, {
+function configFiles() {
+    return gulp.src(config.scss.configurations, {
         read: false
     });
 }
 
-var injectOptions = {
-    transform: function(filePath) {
-        /* filePath = filePath.replace(config.webapp + '/app/', '');
+function helpersFiles() {
+    return gulp.src(config.scss.helpers, {
+        read: false
+    });
+}
+
+function componentsFiles() {
+    return gulp.src(config.scss.components, {
+        read: false
+    });
+}
+
+// Sometimes Sass plugins require config variables to be defined before the plugin is imported in
+// then declare them in the config.scss.pre
+
+function injectOptions(setting) {
+    return {
+        transform: function(filePath) {
+            /* filePath = filePath.replace(config.webapp + '/app/', '');
         filePath = filePath.replace(config.webapp + '/components/', '../components/');*/
-        return '@import \'' + filePath + '\';';
-    },
-    starttag: '// import',
-    endtag: '// endimport',
-    addRootSlash: false
-};
+            return '@import \'' + filePath + '\';';
+        },
+        starttag: '// import:' + setting,
+        endtag: '// endimport',
+        addRootSlash: false
+    };
+}
 
 gulp.task('styles', function() {
     return gulp.src(config.scss.main)
+        .pipe($.inject(configFiles(), injectOptions('configurations')))
         .pipe(wiredep(config.wiredepOptions))
-        .pipe($.inject(partialFiles(), injectOptions))
-        .pipe(gulp.dest(config.scss.dest)) 
+        .pipe($.inject(helpersFiles(), injectOptions('helpers')))
+        .pipe($.inject(componentsFiles(), injectOptions('components')))
+        .pipe(gulp.dest(config.scss.dest))
         .pipe($.sass(sassCompilerOptions))
         .pipe($.autoprefixer())
         .on('error', function handleError(err) {

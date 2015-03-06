@@ -20,13 +20,15 @@ module.exports = function() {
 
         scss: {
             main: assets + '/sass/index.scss',
-            partials: [
-                // Files order: config -> variables -> the rest
-                assets + '/sass/configs/**/_*.scss',
+            configurations: assets + '/sass/configs/**/_*.scss',
+            helpers: [
                 assets + '/sass/functions/**/_*.scss',
-                assets + '/sass/mixins/**/_*.scss',
+                assets + '/sass/mixins/**/_*.scss'
+            ],
+            components: [
                 appPath + '/components/main.scss',
                 appPath + '/**/_*.scss',
+                '!' + assets + '/**'
             ],
             dest: serveDir + '/app/'
         },
@@ -95,7 +97,7 @@ module.exports = function() {
             bowerJson: require('./../bower.json'),
             directory: bowerDir,
             devDependencies: true,
-            exclude: [/*/bootstrap-sass-official/, *//bootstrap\.css/, /bootstrap\.css/, /foundation\.css/]
+            exclude: [ /*/bootstrap-sass-official/, */ /bootstrap\.css/, /bootstrap\.css/, /foundation\.css/]
         }
     };
 

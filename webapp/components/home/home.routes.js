@@ -15,7 +15,6 @@
         };
 
         routeHelper.registerState(stateName, stateConfig);
-        routeHelper.setDefaultState('/home');
     }
     setUpRoutes.$inject = ['routeHelper', 'gettext'];
 })();

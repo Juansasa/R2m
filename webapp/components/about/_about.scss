@@ -1,7 +1,31 @@
-.about {
-    background-color: red;
-    @include container(12);
-    @include respond-to("tablet") {
-        background-color: green;
+.logo {
+	$borderColor: text-contrast(white, #d4d4d4);
+	color: text-contrast(white, $borderColor);
+    %line {
+        border-top: 1px solid $borderColor;
+        content: " ";
+        display: block;
+        height: 1px;
+        width: 30%;
+        position: absolute;
+        left: 0;
+        top: 0.5em;
+        z-index: 1;
+    }
+
+    position: relative;
+    text-align: center;
+    border-bottom: solid thin $borderColor;
+    @include rhythmBorderBottom(1px, 3, $ms-down1);
+    margin-top: emRhythm(3, $ms-down1);
+    h1 {
+        &:before {
+            @extend %line;
+        }
+        &:after {
+            @extend %line;
+            right: 0;
+            left: auto;
+        }
     }
 }

@@ -15,6 +15,7 @@
         };
 
         routeHelper.registerState(stateName, stateConfig);
+        routeHelper.setDefaultState('/about');
     }
     setUpRoutes.$inject = ['routeHelper', 'gettext'];
 })();
