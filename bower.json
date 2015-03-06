@@ -19,9 +19,9 @@
     "normalize.css": "~3.0.2"
   },
   "devDependencies": {
-    "typesettings": "~2.3.3",
     "susy": "~2.2.2",
-    "breakpoint-sass": "~2.5.0"
+    "breakpoint-sass": "~2.5.0",
+    "typeplate-starter-kit": "~2.1.0"
   },
   "appPath": "./webapp",
   "resolutions": {

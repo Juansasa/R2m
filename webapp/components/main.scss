@@ -14,7 +14,7 @@ body {
     border-top: none;
     border-left: none;
     border-right: none;
-    @include rhythmBorderBottom(3px, 0, $ms-down1);
+    //@include rhythmBorderBottom(3px, 0, $ms-down1);
     ul {
         margin: 0;
         padding: 0;
@@ -32,7 +32,7 @@ body {
 .section {
     $borderColor: #d4d4d4;
     @include container(12);
-    margin: emRhythm(3, $ms-down1) emRhythm(4, $ms-down1);
+    //margin: emRhythm(3, $ms-down1) emRhythm(4, $ms-down1);
     .section-left {
         @include span(3 of 12);
         border-right: solid thin $borderColor;

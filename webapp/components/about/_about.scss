@@ -1,12 +1,12 @@
 .logo {
-	$borderColor: text-contrast(white, #d4d4d4);
-	color: text-contrast(white, $borderColor);
+	$borderColor: text-contrast(white, #d4d4d4, 0.5);
+	color: text-contrast(white, $borderColor, 7);
     %line {
         border-top: 1px solid $borderColor;
         content: " ";
         display: block;
         height: 1px;
-        width: 30%;
+        width: 20%;
         position: absolute;
         left: 0;
         top: 0.5em;
@@ -16,8 +16,6 @@
     position: relative;
     text-align: center;
     border-bottom: solid thin $borderColor;
-    @include rhythmBorderBottom(1px, 3, $ms-down1);
-    margin-top: emRhythm(3, $ms-down1);
     h1 {
         &:before {
             @extend %line;
