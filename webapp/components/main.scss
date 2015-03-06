@@ -1,7 +1,12 @@
+// Global theme
+$borderColor: text-contrast(white, #d4d4d4, 0.7);
+
 body {
     margin: 0;
     padding: 0;
     @include global-box-sizing(border-box);
+        background-color: darken(white, 5%);
+
     //@include debug-vertical-alignment();
 }
 
@@ -29,24 +34,30 @@ body {
     }
 }
 
-.section {
+section {
+    height: 1500px;
     $borderColor: #d4d4d4;
     @include container(12);
-    //margin: emRhythm(3, $ms-down1) emRhythm(4, $ms-down1);
-    .section-left {
+    border-top: solid thin $borderColor;
+    padding: 1em 1em;
+    aside {
         @include span(3 of 12);
         border-right: solid thin $borderColor;
         text-align: right;
         padding-right: 2em;
     }
-    .section-content {
+    article {
         @include span(6 of 12);
     }
     .section-right {
         @include span(3 of 12 last);
+        padding-left: 1em;
         .social {
             ul {
             	margin-bottom: 0;
+                padding-left: 0;
+                margin-top: 0;
+                border-bottom: thin solid $borderColor;
                 li {
                     display: inline-block;
                     margin: 0.5em;
@@ -59,6 +70,7 @@ body {
         .contact-info {
             ul {
                 list-style: none;
+                padding: 0;
             }
         }
     }

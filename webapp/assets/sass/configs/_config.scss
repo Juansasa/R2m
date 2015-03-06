@@ -28,7 +28,7 @@ $breakpoints : (
 // $typl8-font-family               non-font-face stack
 
 $typl8-serif-boolean: true !default;
-$typl8-custom-font: 'Helvetica Neue', Helvetica, Arial !default;
+$typl8-custom-font: 'Droid Sans', 'Helvetica Neue', Helvetica, Arial !default;
 $typl8-font-family: if($typl8-serif-boolean, serif, sans-serif) !default;
 $typl8-font-weight: normal !default;
 $typl8-line-height: 1.65 !default;
