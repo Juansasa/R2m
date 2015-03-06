@@ -12,11 +12,11 @@
         'ngSanitize', 
         'ngResource', 
         'ui.bootstrap',
-        'angular-parallax',
         
         'exception',
         'router'
     ]).run(['gettextCatalog', function(gettextCatalog) {
+            $.stellar();
             gettextCatalog.currentLanguage = 'sv';
             //gettextCatalog.debug = true;
         }

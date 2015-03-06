@@ -5,7 +5,7 @@ body {
     margin: 0;
     padding: 0;
     @include global-box-sizing(border-box);
-        background-color: darken(white, 5%);
+        background-color: darken(white, 2%);
 
     //@include debug-vertical-alignment();
 }
@@ -35,11 +35,11 @@ body {
 }
 
 section {
-    height: 1500px;
     $borderColor: #d4d4d4;
     @include container(12);
     border-top: solid thin $borderColor;
     padding: 1em 1em;
+    height: 2000px;
     aside {
         @include span(3 of 12);
         border-right: solid thin $borderColor;

@@ -1,7 +1,7 @@
 .logo {
     @include container;
 	color: text-contrast(white, $borderColor, 7);
-    margin: 1em 0;
+    padding: 3em 0;
     %line {
         border-top: 1px solid $borderColor;
         content: " ";
@@ -17,6 +17,8 @@
     position: relative;
     text-align: center;
     h1 {
+        margin-bottom: 0em;
+        font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
         &:before {
             @extend %line;
         }
