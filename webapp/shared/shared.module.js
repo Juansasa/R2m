@@ -16,7 +16,6 @@
         'exception',
         'router'
     ]).run(['gettextCatalog', function(gettextCatalog) {
-            $.stellar();
             gettextCatalog.currentLanguage = 'sv';
             //gettextCatalog.debug = true;
         }

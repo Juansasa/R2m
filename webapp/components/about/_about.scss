@@ -2,8 +2,11 @@
     @include container;
 	color: text-contrast(white, $borderColor, 7);
     padding: 3em 0;
+    border-bottom: solid thick $borderColor;
+    //background: url('/assets/images/ls2.jpeg');
+    //background-attachment: fixed;
     %line {
-        border-top: 1px solid $borderColor;
+        border-top: 5px solid #AA1111;
         content: " ";
         display: block;
         height: 1px;
@@ -16,26 +19,14 @@
 
     position: relative;
     text-align: center;
-    h1 {
-        margin-bottom: 0em;
-        font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        &:before {
-            @extend %line;
-        }
-        &:after {
-            @extend %line;
-            right: 0;
-            left: auto;
-        }
-    }
 
     .avatar {
         width: 300px;
         height: 300px;
         position: relative;
         overflow: hidden;
-        border-radius: 50% 50% 50% 50%;
-        box-shadow: 1px 1px 10px 5px $borderColor;
+        border-radius: 50%;
+        box-shadow: 1px 1px 10px 5px #D5D5D5;
         border: solid thick white;
         display: inline-block;
         img {
@@ -44,4 +35,217 @@
             width: 100%;
         }
     }
+
+    .title-box {
+        h1{
+            margin-bottom: 0em;
+            font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: white;
+            @include stroke(2, black);
+            &:before {
+                @extend %line;
+            }
+            &:after {
+                @extend %line;
+                right: 0;
+                left: auto;
+            }
+        }
+
+        h5 {
+            @include stroke(2, white);
+        }
+    }
 }
+
+$parallax-window-height: 60em;
+$parallax-background-height: $parallax-window-height * 2;
+
+.parallax-window {
+  max-height: $parallax-window-height;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 40em;
+}
+
+.parallax-static-content {
+  color: text-constrast(beige);
+  padding: 8em 0;
+  position: relative;
+  z-index: 9;
+}
+
+.parallax-background {
+  background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png") repeat;
+  background-position: top;
+  background-size: cover;
+  background-color: beige;
+  height: $parallax-background-height;
+  left: 0;
+  position: absolute;
+  top: - $parallax-window-height / 3;
+  width: 100%;
+}
+
+
+/// Box item
+.flex-boxes {
+  ///////////////////////////////////////////////////////////////////////////////////
+  $base-border-radius: 3px !default;
+  $base-background-color: white !default;
+  $dark-gray: #333 !default;
+  $light-gray: #DDD !default;
+  $base-font-color: $dark-gray !default;
+  
+  a {
+    text-decoration: none;
+  }  
+  //////////////////////////////////////////////////////////////////////////////////
+
+  $flex-box-border-color: $light-gray;
+  $flex-box-border: 1px solid $flex-box-border-color;
+  $flex-box-background: lighten($light-gray, 10%);
+  $flex-box-gutter: 0.4em;
+  $flex-box-width: 18em;
+  $flex-box-color: transparentize($base-font-color, 0.3);
+  $flex-box-top-colors: 
+    tomato, 
+    #72BFBF, 
+    #92B1E3, 
+    #E3D743,
+    #CCC,
+    #F6C05C;
+
+    @include clearfix;
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(stretch);
+    @include flex-wrap(wrap);
+    clear: both;
+    text-align: center;
+
+  .flex-box {
+    @include transition (all 0.2s ease-in-out);
+    @include flex(2 2 15em);
+    @include align-self(stretch);
+    background: $flex-box-background;
+    border-radius: $base-border-radius;
+    box-shadow: inset 0 0 1px $flex-box-border-color, 0 2px 4px darken($base-background-color, 10%);
+    display: block;
+    margin: $flex-box-gutter;
+    padding: 2em 2em 3em 2em;
+
+    @for $i from 1 to 7 { // assign colors from $flex-box-top-colors list
+      &:nth-child(#{$i}) {
+        $color-from-list: nth($flex-box-top-colors, $i);
+        border-top: 6px solid $color-from-list;
+        
+        &:focus,
+        &:hover {
+          background-color: transparentize($color-from-list, 0.9);
+        }
+      }
+    }
+
+    img {
+      display: block;
+      height: 3em;
+      margin-bottom: 2em;
+      margin: auto;
+      opacity: 0.4;
+    }
+
+    .flex-title {
+      color: $flex-box-color;
+      font-size: 1.2em;
+      font-weight: 800;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      color: transparentize($flex-box-color, 0.1);
+      line-height: 1.5em;
+      margin: auto;
+    }
+  }
+
+  .flex-box-big {
+    @include flex(1 1 40em);
+  }
+}
+
+
+// Educations
+.comment {
+  ///////////////////////////////////////////////////////////////////////////////////
+  $base-border-radius: 3px !default;
+  $base-spacing: 1.5em !default;
+  $base-accent-color: #477DCA !default;
+  $dark-gray: #333 !default;
+  $base-font-color: $dark-gray !default;
+  //////////////////////////////////////////////////////////////////////////////////
+
+  $comment-gutter: 1.4em;
+  $comment-image-padding: 0.7em;
+  $comment-image-width: 4em;
+  $comment-color: $base-font-color;
+  $comment-background: lighten($base-accent-color, 15%);
+  $comment-detail-color: transparentize($comment-color, 0.5);
+  $comment-image-vert-alignment: top;
+
+  border-bottom: 1px solid transparentize($comment-color, 0.9);
+  display: table;
+  margin-bottom: $base-spacing;
+  padding-bottom: 1em;
+  width: 100%;
+
+  .comment-image,
+  .comment-content {
+    display: table-cell;
+    vertical-align: $comment-image-vert-alignment;
+  }
+
+  .comment-image {
+    padding-right: $comment-gutter;
+
+    > img {
+      background: $comment-background;
+      border-radius: $base-border-radius;
+      display: block;
+      height: auto;
+      max-width: none;
+      padding: $comment-image-padding;
+      width: $comment-image-width;
+    }
+
+    .comment-reverse-order & {
+      padding-right: 0;
+      padding-left: 10px;
+    }
+  }
+
+  .comment-content {
+    width: 100%;
+
+    h1 {
+      font-size: 1em;
+      margin: 0 0 0.5em 0;
+    }
+
+    p {
+      line-height: 1.5em;
+      margin-bottom: 0.5em;
+    }
+
+    p.comment-detail {
+      color: $comment-detail-color;
+      font-size: 0.9em;
+      font-style: italic;
+    }
+  }
+}
+
+
+
