@@ -7,15 +7,20 @@
      */
     angular.module('shared', [
         'gettext',
-        'ngAnimate', 
-        'ngCookies', 
-        'ngSanitize', 
-        'ngResource', 
+        'ngAnimate',
+        'ngCookies',
+        'ngSanitize',
+        'ngResource',
         'ui.bootstrap',
-        
+
         'exception',
         'router'
-    ]).run(['gettextCatalog', function(gettextCatalog) {
+    ]).run(['gettextCatalog',
+        function(gettextCatalog) {
+            $.stellar({
+                horizontalScrolling: false,
+                responsive: true
+            });
             gettextCatalog.currentLanguage = 'sv';
             //gettextCatalog.debug = true;
         }

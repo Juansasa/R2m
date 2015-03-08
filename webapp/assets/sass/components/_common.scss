@@ -1,0 +1,30 @@
+// Global theme
+$borderColor: text-contrast(white, #EBEBEB, 0.7);
+
+body {
+    margin: 0;
+    padding: 0;
+    @include global-box-sizing(border-box);
+    background-image: url(http://www.designbolts.com/wp-content/uploads/2012/12/Grid-Noise-White-Seamless-Pattern.jpg);
+    height: 2000px;
+}
+
+p {
+	font-family: 'Droid Sans', serif;
+}
+section {
+	min-height: 500px;
+	padding: 2em;
+	&:nth-child(even) {
+		background-color: transparentize(darken(white, 10%), 0.7);
+	}
+
+	.title-box {		
+		display: table;
+		border: solid 2px darken(red, 10%);
+		margin: 1em auto;
+		text-align: center;
+		padding: 0.2em 0.5em ;
+		position: relative;
+	}
+}

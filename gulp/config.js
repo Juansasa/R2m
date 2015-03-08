@@ -26,9 +26,8 @@ module.exports = function() {
                 assets + '/sass/mixins/**/_*.scss'
             ],
             components: [
-                appPath + '/components/main.scss',
-                appPath + '/**/_*.scss',
-                '!' + assets + '/**'
+                assets + '/sass/components/_common.scss',
+                assets + '/sass/components/**/_*.scss',
             ],
             dest: serveDir + '/app/'
         },

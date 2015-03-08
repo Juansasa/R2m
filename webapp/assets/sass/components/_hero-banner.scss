@@ -1,0 +1,86 @@
+.hero-banner {
+  $image-gradient-color-top: red; 
+  $transparency-top: 0.8;
+  $image-gradient-color-bottom: green; 
+  $transparency-bottom: 1;
+  $vertical-angle: 0deg;
+  $image-gradient-color-left: teal; 
+  $transparency-left: 0.8;
+  $image-gradient-color-right: yellow; 
+  $transparency-right: 0.8;
+  $horizontal-angle: 90deg;
+
+  background-image: url('/assets/images/ls.jpeg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center top;
+  line-height: 0;
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  img {
+	   height: auto;
+	   left: 0; 
+	   position: relative;
+	   top: 0;
+	   width: 100%;
+  }
+
+  .banner-message {
+    right: 50%;
+    top: 10%;
+    margin: auto;
+    position: absolute;
+    z-index: 999;
+
+    h1 {
+      color: white;
+      //border: solid white 2px;
+      border-bottom: none;
+      padding: 0 0.1em 0.1em 0.1em;
+      margin-bottom: 0;
+      position: relative;
+    }
+
+    h2 {
+      color: white;
+      font-size: 2em;
+      text-align: center;
+      position: relative;
+
+      &:before {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 50%;
+        width: 15%;
+        border: solid thin white;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        right: 0;
+        top: 50%;
+        width: 15%;
+        border: solid thin white;
+      }
+    }
+  }
+
+  .overlay {
+    @include linear-gradient($vertical-angle, transparentize($image-gradient-color-top, $transparency-top), 
+      transparentize($image-gradient-color-bottom, $transparency-bottom));
+    display: block;
+    @include position(absolute, 0px 0px 0px 0px);
+
+    &:after {
+      @include linear-gradient($horizontal-angle, transparentize($image-gradient-color-left, $transparency-left), 
+        transparentize($image-gradient-color-right, $transparency-right));
+      @include position(absolute, 0px 0px 0px 0px);
+      content: '';
+      display: block;
+    }
+  }
+}

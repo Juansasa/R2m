@@ -1,0 +1,28 @@
+.about-me {
+    @include container(12);
+
+    aside {
+        @include span(5 of 12);
+        @include post(1 of 12);
+        .avatar {
+            float: right;
+            width: 300px;
+            height: auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            box-shadow: 1px 1px 10px 5px #D5D5D5;
+            border: solid thick white;
+            display: inline-block;
+            img {
+                display: inline;
+                margin: 0 auto;
+                width: 100%;
+            }
+        }
+    }
+
+    article {
+        @include span(6 of 12 last);
+    }
+}

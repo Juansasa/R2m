@@ -28,11 +28,11 @@ $breakpoints : (
 // $typl8-font-family               non-font-face stack
 
 $typl8-serif-boolean: true !default;
-$typl8-custom-font: 'Droid Sans', 'Helvetica Neue', Helvetica, Arial !default;
+$typl8-custom-font: Montserrat,'Helvetica Neue', Helvetica, Arial !default;
 $typl8-font-family: if($typl8-serif-boolean, serif, sans-serif) !default;
 $typl8-font-weight: normal !default;
 $typl8-line-height: 1.65 !default;
-$typl8-font-size: 90 !default;
+$typl8-font-size: 80 !default;
 $typl8-font-base: 16 * ($typl8-font-size/100) !default;
 $typl8-measure: $typl8-font-base * $typl8-line-height !default;
 $typl8-prefixes: -webkit-, -moz-, -ms-, '' !default;
