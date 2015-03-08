@@ -1,6 +1,6 @@
 // Global theme
 $borderColor: text-contrast(white, #EBEBEB, 0.7);
-
+$sitewidth: 100%;
 body {
     margin: 0;
     padding: 0;
@@ -13,6 +13,7 @@ p {
 	font-family: 'Droid Sans', serif;
 }
 section {
+	@include container($sitewidth);
 	min-height: 500px;
 	padding: 2em;
 	&:nth-child(even) {
@@ -21,10 +22,12 @@ section {
 
 	.title-box {		
 		display: table;
-		border: solid 2px darken(red, 10%);
+		border: solid 1px darken(red, 10%);
 		margin: 1em auto;
 		text-align: center;
 		padding: 0.2em 0.5em ;
 		position: relative;
+		min-width: 7em;
+		@extend .typl8-delta;
 	}
 }

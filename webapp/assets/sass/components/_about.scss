@@ -1,13 +1,11 @@
 .about-me {
-    @include container(12);
-
     aside {
         @include span(5 of 12);
         @include post(1 of 12);
         .avatar {
             float: right;
             width: 300px;
-            height: auto;
+            height: 300px;
             position: relative;
             overflow: hidden;
             border-radius: 50%;

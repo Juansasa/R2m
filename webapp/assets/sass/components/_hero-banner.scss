@@ -14,32 +14,25 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center top;
-  line-height: 0;
   position: relative;
-  width: 100%;
   min-height: 500px;
-  img {
-	   height: auto;
-	   left: 0; 
-	   position: relative;
-	   top: 0;
-	   width: 100%;
-  }
 
   .banner-message {
-    right: 50%;
-    top: 10%;
+    @include transform(translate(-50%, -50%));
+    left: 50%;
     margin: auto;
     position: absolute;
+    text-align: center;
+    top: 50%;
     z-index: 999;
 
     h1 {
       color: white;
+      letter-spacing: 0.2em;
       //border: solid white 2px;
       border-bottom: none;
-      padding: 0 0.1em 0.1em 0.1em;
-      margin-bottom: 0;
       position: relative;
+      text-align: center;
     }
 
     h2 {
@@ -52,8 +45,9 @@
         content: "";
         position: absolute;
         display: block;
+        left: -11%;
         top: 50%;
-        width: 15%;
+        width: 10%;
         border: solid thin white;
       }
 
@@ -61,9 +55,9 @@
         content: "";
         position: absolute;
         display: block;
-        right: 0;
+        right: -11%;
         top: 50%;
-        width: 15%;
+        width: 10%;
         border: solid thin white;
       }
     }
