@@ -1,8 +1,7 @@
-
 .header-nav {
-    $bgColor: lighten(black, 20%);
-    width: 100%;
-    background-color: $bgColor;
+    @include container;
+    $header-bg: lighten(black, 20%);
+    background-color: $header-bg;
     ul {
         margin: 0;
         padding: 0;
@@ -10,7 +9,7 @@
             padding: 1em;
             display: inline-block;
             a {
-                color: text-contrast(black, white);
+                color: text-contrast(white, black);
                 text-decoration: none;
             }
         }

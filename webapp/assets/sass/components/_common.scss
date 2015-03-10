@@ -1,33 +1,50 @@
 // Global theme
 $borderColor: text-contrast(white, #EBEBEB, 0.7);
+$header-bg: lighten(black, 20%);
+$theme-red: #DE4A32;
+$title-bg: #E9E9E9;
 $sitewidth: 100%;
+
+$susy: (global-box-sizing: border-box, columns: 12, gutters: 0);
+
 body {
     margin: 0;
     padding: 0;
-    @include global-box-sizing(border-box);
     background-image: url(http://www.designbolts.com/wp-content/uploads/2012/12/Grid-Noise-White-Seamless-Pattern.jpg);
     height: 2000px;
 }
 
-p {
-	font-family: 'Droid Sans', serif;
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
-section {
-	@include container($sitewidth);
-	min-height: 500px;
-	padding: 2em;
-	&:nth-child(even) {
-		background-color: transparentize(darken(white, 10%), 0.7);
-	}
 
-	.title-box {		
-		display: table;
-		border: solid 1px darken(red, 10%);
-		margin: 1em auto;
-		text-align: center;
-		padding: 0.2em 0.5em ;
-		position: relative;
-		min-width: 7em;
-		@extend .typl8-delta;
-	}
+p {
+    font-family: 'Droid Sans', serif;
+}
+
+.title-box {
+    @include container;
+    text-align: center;
+    padding: 1em 0.5em;
+    background-color: $header-bg;
+    color: text-color($header-bg);
+    font-size: 2em;
+    margin: 0;
+}
+
+section {
+    @include container;
+    @include clearfix;
+    min-height: 500px;
+    &:nth-child(odd) {
+        background-color: transparentize(darken(white, 10%), 0.7);
+    }
+    .left {
+        @include span(6);
+    }
+    .right {
+        @include span(6 last);
+    }
 }
