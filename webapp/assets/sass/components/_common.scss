@@ -42,9 +42,10 @@ section {
         background-color: transparentize(darken(white, 10%), 0.7);
     }
     .left {
-        @include span(6);
+        @include span(5);
     }
+    
     .right {
-        @include span(6 last);
+        @include span(5 last);
     }
 }

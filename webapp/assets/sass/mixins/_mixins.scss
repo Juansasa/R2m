@@ -3,19 +3,49 @@
 /// @param  {Color}   $color  - Stroke color
 /// @return {List}            - text-shadow list
 @function stroke($stroke, $color) {
-  $shadow: ();
-  $from: $stroke*-1;
-  @for $i from $from through $stroke {
-   @for $j from $from through $stroke {
-      $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
+    $shadow: ();
+    $from: $stroke * -1;
+    @for $i from $from through $stroke {
+        @for $j from $from through $stroke {
+            $shadow: append($shadow, $i * 1px $j * 1px 0 $color, comma);
+        }
     }
-  }
-  @return $shadow;
+    @return $shadow;
 }
+
 /// Stroke font-character
 /// @param  {Integer} $stroke - Stroke width
 /// @param  {Color}   $color  - Stroke color
 /// @return {Style}           - text-shadow
 @mixin stroke($stroke, $color) {
-  text-shadow: stroke($stroke, $color);
+    text-shadow: stroke($stroke, $color);
+}
+
+@mixin fillColumn($bgcolor, $spanwidth, $spanLeftOffset) {
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: $spanLeftOffset;
+        width: span($spanwidth);
+        background-color: $bgcolor;
+        height: 100%;
+        z-index: -1;
+    }
+}
+
+@mixin formalButton($bgcolor:white, $bordercolor:black) {
+    background-color: $bgcolor;
+    color: text-constrast($bgcolor);
+    border: solid 3px $bordercolor;
+    text-transform: uppercase;
+    font-family: Oswald, 'Helvetica Neue', Helvetica, Arial;
+    outline: none;
+    &:hover {
+        border: solid 3px $theme-red;
+    }
+
+    &:active {
+        border: solid 3px $bordercolor;
+    }
 }
