@@ -14,6 +14,10 @@ function runTests(singleRun, done) {
     });
 
     var testFiles = bowerDeps.js.concat([
+        config.webapp + '/**/*.module.js',
+        config.webapp + '/**/*.constant.js',
+        config.webapp + '/**/*.service.js',
+        config.webapp + '/**/*.spec.js',
         config.webapp + '/**/*.js'
     ]);
 
@@ -26,6 +30,7 @@ function runTests(singleRun, done) {
     }
 
     gulp.src(testFiles)
+        .pipe($.print())
         .pipe($.karma({
             configFile: config.karmaconfig.configfile,
             action: (singleRun) ? 'run' : 'watch'

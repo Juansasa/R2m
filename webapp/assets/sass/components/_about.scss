@@ -6,7 +6,7 @@
     position: relative;
     .who-am-i {
         @include span($leftwidth);
-        padding: 3em 0;
+        padding: $column-padding;
         h3, h4 {
             text-align: center;
         }
@@ -44,11 +44,11 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        @include fillColumn(white, span($centerwidth), span($leftwidth));
+        @include fillColumn(inherit, span($centerwidth), span($leftwidth));
     }
     .contact {
         @include span($rightwidth last);
-        padding: 3em 0;
+        padding: $column-padding;
         p {
             padding-left: 1em;
         }

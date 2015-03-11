@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 	angular.module('r2m')
-	.directive('progressBar', function(){
+	.directive('progressbar', function(){
 		// Runs during compile
 		return {
 			 scope: {

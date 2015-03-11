@@ -28,6 +28,7 @@ module.exports = function() {
             components: [
                 assets + '/sass/components/_common.scss',
                 assets + '/sass/components/**/_*.scss',
+                appPath + '/shared/**/_*.scss'
             ],
             dest: serveDir + '/app/'
         },

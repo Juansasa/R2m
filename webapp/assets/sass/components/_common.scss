@@ -4,6 +4,7 @@ $header-bg: lighten(black, 20%);
 $theme-red: #DE4A32;
 $title-bg: #E9E9E9;
 $sitewidth: 100%;
+$column-padding: 3em 0;
 
 $susy: (global-box-sizing: border-box, columns: 12, gutters: 0);
 
@@ -34,17 +35,43 @@ p {
     margin: 0;
 }
 
+.box-overlay {
+    text-align: center;
+    .text-content {
+        display: inline-block;
+        border: solid thin black;
+        padding: 0.2em 0.5em;
+        min-width: 5em;
+    }
+}
+
+.gallery {
+    text-align: center;
+    margin-top: 3em;
+    .gallery-item {
+        display: inline-block;
+        img {
+            width: auto;
+            height: 10em;
+            overflow: hidden;
+            display: inline-block;
+            margin: 0 1em;
+            border: solid thick white;
+            box-shadow: 1px 1px 10px 1px grey;
+        }
+    }
+}
+
 section {
     @include container;
     @include clearfix;
     min-height: 500px;
-    &:nth-child(odd) {
-        background-color: transparentize(darken(white, 10%), 0.7);
-    }
+    // &:nth-child(odd) {
+    //     background-color: transparentize(darken(white, 10%), 0.7);
+    // }
     .left {
         @include span(5);
     }
-    
     .right {
         @include span(5 last);
     }

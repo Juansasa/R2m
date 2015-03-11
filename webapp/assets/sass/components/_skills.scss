@@ -1,66 +1,26 @@
 .skills {
-    ul {
-        li {
-            @include clearfix;
-            $barheight: 2em;
-            img {
-                display: inline-block;
-                width: 4em;
-                height: auto;
-                float: left;
-                margin-top: -($barheight / 2);
-                padding-right: 0.5em;
-            }
-
-            .progress-bar-indication {
-                ///////////////////////////////////////////////////////////////////////////////////
-                $base-border-color: white !default;
-                $base-border-radius: 3px !default;
-                $base-background-color: #E9E9E9 !default;
-                $base-accent-color: $theme-red !default;
-                //////////////////////////////////////////////////////////////////////////////////
-                $progress-border-color: $base-border-color;
-                $progress-border: 1px solid $progress-border-color;
-                $progress-meter-border-color: $base-accent-color;
-                $progress-meter-border: 1px solid darken($progress-meter-border-color, 15%);
-                $progress-meter-color: $progress-meter-border-color;
-                $progress-background: darken($base-background-color, 5);
-                $progress-color: white;
-                background-color: $progress-background;
-                border-radius: $base-border-radius;
-                //border: $progress-border;
-                box-shadow: inset 0 0 3px 0 rgba(darken($progress-background, 50%), 0.15);
-                margin: 0 auto;
-                max-width: 100%;
-                min-width: 20em;
-                height: $barheight;
-                display: inline-block;
-                vertical-align: middle;
-                > span.meter {
-                    @include box-sizing(border-box);
-                    background-color: $progress-meter-color;
-                    background-repeat: repeat-x;
-                    background-size: 40px 40px;
-                    border-bottom-right-radius: 0;
-                    border-radius: $base-border-radius / 1.5;
-                    border-top-right-radius: 0;
-                    border: $progress-meter-border;
-                    display: inline-block;
-                    height: 100%;
-                    min-height: 2em;
-                    p {
-                        float: left;
-                        color: text-constrast($base-accent-color);
-                    }
-                }
-                p {
-                    color: text-constrast($base-background-color);
-                    display: inline;
-                    float: right;
-                    line-height: $barheight;
-                    padding: 0 0.5em;
-                }
+    $bg-color: white;
+    position: relative;
+    background-color: white;
+    .language {
+        padding: $column-padding span(1);
+        padding-bottom: 0;
+        h5 {
+            font-family: 'Droid Sans', 'san-serif';
+            color: text-constrast(white, $bg-color, 4);
+        }
+    }
+    .programming {
+        padding: $column-padding;
+        .bar-container {
+            padding: 0 span(1);
+            margin-top: 3em;
+            .progress-bar {
+                margin: 1em 0;
             }
         }
+    }
+    .hobbies {
+        padding: $column-padding span(1);
     }
 }

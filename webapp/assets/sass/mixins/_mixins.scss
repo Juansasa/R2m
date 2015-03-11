@@ -49,3 +49,16 @@
         border: solid 3px $bordercolor;
     }
 }
+
+@mixin absoluteRotatedBox($color: black, $width:100%, $height: 100%) {
+    &:after {
+        content: '';
+        position: absolute;
+        width: $width;
+        height: $height;
+        top: 0;
+        left: 0;
+        border: solid thin $color;
+        transform: rotate(45deg);
+    }
+}

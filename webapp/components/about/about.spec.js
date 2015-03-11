@@ -2,7 +2,7 @@
 
 describe("about suite", function() {
 	beforeEach(function() {
-		module('app');
+		module('shared');
 	});
 
 	it("should pass", function() {
