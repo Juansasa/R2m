@@ -25,11 +25,11 @@ function browserSyncInit(baseDir, files, browser) {
             startPath: '/',
             server: {
                 baseDir: baseDir,
-                //directory: true,
+                directory: true,
                 middleware: middleware,
                 routes: routes
             },
-            files: files,
+            files: files || [],
             watchOptions: {
                 debounceDelay: 1000
             },
