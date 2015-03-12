@@ -65,7 +65,6 @@ p {
 section {
     @include container;
     @include clearfix;
-    min-height: 500px;
     // &:nth-child(odd) {
     //     background-color: transparentize(darken(white, 10%), 0.7);
     // }

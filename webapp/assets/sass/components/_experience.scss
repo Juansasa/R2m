@@ -1,0 +1,30 @@
+.experience {
+    background-color: white;
+    position: relative;
+    .time-line {
+        padding: $column-padding;
+        .time-line-item {
+        	border-bottom: solid thin red;
+        	@include clearfix;
+        	.left {
+				background-color: blue;
+				max-width: 50%;
+        	}
+
+        	.right {
+        		background-color: red;
+        		max-width: 50%;
+        	}
+
+        	.time-point {
+        		background-color: yellow;
+        		width: 100%;
+        		text-align: center;
+        		h4 {
+        			display: inline-block;
+        			float: left;
+        		}
+        	}
+        }
+    }
+}
