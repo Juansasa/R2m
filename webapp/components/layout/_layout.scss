@@ -1,3 +1,33 @@
 .layout {
-	background-color: blue;
+	@include container;
+	.row {
+		background-color: black;
+		@include span(12);
+		text-align: center;
+		color: text-color(black); // Get the text color with good constrast to the background
+	}
+
+	.col6 {
+		@include span(6);
+		background-color: blue;
+		color: text-color(blue);
+		&:nth-child(odd) {
+			background-color: red;
+			color: text-color(red);
+		}
+	}
+
+	.col3 {
+		@include span(3);
+		background-color: gold;
+		&:nth-child(odd) {
+			background-color: white;
+			color: text-color(white);
+		}
+	}
+
+	.gallery {
+		@include gallery(1 of 4);
+		background-color: pink;
+	}
 }
