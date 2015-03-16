@@ -22,5 +22,17 @@
     }
     .hobbies {
         padding: $column-padding span(1);
+        h4 {
+            display: none;
+        }
+        .gallery {
+            .gallery-item {
+                img {
+                    margin: 0 0.5em;
+                    border: none;
+                    height: 15em;
+                }
+            }
+        }
     }
 }

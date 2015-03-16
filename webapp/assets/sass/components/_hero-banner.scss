@@ -67,4 +67,8 @@
             display: block;
         }
     }
+
+        //@include respond-to("tablet") {
+        //background-image: url("/assets/images/ls2.jpeg")
+    //}
 }

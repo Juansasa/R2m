@@ -28,6 +28,7 @@
     }
     .avatar {
         @include span($centerwidth);
+        background-color: red;
         img {
             width: 80%;
             height: auto;

@@ -6,10 +6,9 @@
 		return {
 			 scope: {
 			 	progressValue: '=value',
-			 	iconSrc: '@icon'
+			 	skill: '@label'
 			 }, 
-			 controller: function($scope, $element, $attrs, $transclude) {
-			 },
+			// controller: function($scope, $element, $attrs, $transclude) {},
 			// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
 			 restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
 			 templateUrl: 'shared/directives/progress-bar/progressbar.template.html',
