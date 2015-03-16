@@ -1,21 +1,19 @@
 (function() {
     'use strict';
 
-    angular.module('about')
+    angular.module('responsive')
         .run(setUpRoutes);
 
     /*@ngInject*/
     function setUpRoutes(routeHelper, gettext) {
-        var stateName = 'about';
+        var stateName = 'responsive';
         var stateConfig = {
-            url: '/about',
-            templateUrl: 'components/about/about.html',
-            title: gettext('About'),
-            controller: 'AboutController'
+            url: '/responsive',
+            templateUrl: 'components/responsive/responsive.html',
+            title: gettext('responsive'),
         };
 
         routeHelper.registerState(stateName, stateConfig);
-        routeHelper.setDefaultState('/about');
     }
     setUpRoutes.$inject = ['routeHelper', 'gettext'];
 })();

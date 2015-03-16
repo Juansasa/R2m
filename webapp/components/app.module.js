@@ -8,7 +8,11 @@
     angular.module('r2m', [
     	'shared',
         
-    	'about',
-        'home'
+        'home',
+    	'layout',
+        'responsive',
+        'typography',
+        'gulp',
+        'translation'
     	]);
 })();

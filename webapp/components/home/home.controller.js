@@ -6,6 +6,6 @@
 	/*@ngInject*/
 	function Home($scope, $uiViewScroll) {
 		$scope.welcome = 'Welcome home';
-		$uiViewScroll(angular.element(document.querySelector('.home-below')));
+		$uiViewScroll(angular.element(document.querySelector('.home')));
 	}
 })();

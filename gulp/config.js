@@ -9,7 +9,7 @@ module.exports = function() {
     var dist = 'dist';
     var assets = appPath + '/assets';
     var bowerDir = './bower_components';
-    var serveDir = tmp + '/serve';
+    var serveDir = tmp;
     var unittestDir = './unit-tests';
 
     var config = {
@@ -19,18 +19,19 @@ module.exports = function() {
         dist: dist,
 
         scss: {
-            main: assets + '/sass/index.scss',
+            main: appPath + '/index.scss',
             configurations: assets + '/sass/configs/**/_*.scss',
             helpers: [
                 assets + '/sass/functions/**/_*.scss',
                 assets + '/sass/mixins/**/_*.scss'
             ],
             components: [
-                assets + '/sass/components/_common.scss',
-                assets + '/sass/components/**/_*.scss',
-                appPath + '/shared/**/_*.scss'
+                appPath + '/**/_main.scss', //Make sure the main.scss file is loaded first
+                appPath + '/**/*.scss',
+                '!' + assets + '/**/*',
+                '!' + appPath + '/index.scss'
             ],
-            dest: serveDir + '/app/'
+            dest: tmp
         },
 
         css: {

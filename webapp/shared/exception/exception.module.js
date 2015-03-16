@@ -1,7 +1,6 @@
 (function() {
     'use strict';
 
-    /* recommended */
-    angular
-        .module('exception', ['logger']);
+    /* Simple error handler with option to be configured */
+    angular.module('exception', ['logger']);
 })();

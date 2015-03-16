@@ -42,8 +42,6 @@ function componentsFiles() {
 function injectOptions(setting) {
     return {
         transform: function(filePath) {
-            /* filePath = filePath.replace(config.webapp + '/app/', '');
-        filePath = filePath.replace(config.webapp + '/components/', '../components/');*/
             return '@import \'' + filePath + '\';';
         },
         starttag: '// import:' + setting,
