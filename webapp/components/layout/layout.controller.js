@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 	angular.module('layout')
-	.controller('LayoutController', ['$scope', function($scope){
-		$scope.test = 'test';
+	.controller('LayoutController', ['$scope', 'gettext', function($scope, gettext){
+		$scope.test = gettext('test');
 	}]);
 })();

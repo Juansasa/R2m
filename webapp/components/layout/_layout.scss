@@ -1,33 +1,93 @@
+$layout-bg: black;
+
+
+$susy: (
+  flow: ltr, // ltr | rtl
+  output: float, // float | isolate
+  math: fluid, // fluid | static (requires column-width)
+  column-width: false, // false | value
+  container: auto, // length or % | auto
+  container-position: center, // left | center | right | <length> [*2] (grid padding)
+  last-flow: to,
+  columns: 12,
+  gutters: 0.1,
+  gutter-position: after, // before | after | split | inside | inside-static (requires column-width)
+  global-box-sizing: content-box, // content-box | border-box (affects inside/inside-static)
+  debug: (
+    image: true, // Show column helpers
+    color: rgba(#66f, .25),
+    output: background, // background | overlay
+    toggle: top right,
+  ),
+  use-custom: (
+    background-image: true, // look for background-image mixin
+    background-options: false, // look for background-size, -origin and -clip and other compass/bourbon mixins
+    box-sizing: true, // look for custom bix sizing mixin
+    clearfix: false, // true = look for internal clearfix before using micro clearfix
+    rem: true, // look for rem mixin
+  )
+);
+
 .layout {
-	@include container;
-	.row {
-		background-color: black;
-		@include span(12);
-		text-align: center;
-		color: text-color(black); // Get the text color with good constrast to the background
-	}
+    h1 {
+    	padding: 3em 0;
+    }
 
-	.col6 {
-		@include span(6);
-		background-color: blue;
-		color: text-color(blue);
-		&:nth-child(odd) {
-			background-color: red;
-			color: text-color(red);
-		}
-	}
+    p {
+    	margin: 3em auto;
+    }
 
-	.col3 {
-		@include span(3);
-		background-color: gold;
-		&:nth-child(odd) {
-			background-color: white;
-			color: text-color(white);
-		}
-	}
+    .row {
+        @include container;
+        text-align: center;
 
-	.gallery {
-		@include gallery(1 of 4);
-		background-color: pink;
-	}
+        .first-half {
+        	@include span(6);
+        	background-color: red;
+        }
+
+        .second-half {
+        	@include span(6 last);
+        	background-color: blue;
+        }
+
+        .box1 {
+        	@include span(6);
+        	@include backgroundAndColor(pink);
+        }
+
+        .box2 {
+        	@include span(6 last);
+        	@include backgroundAndColor(yellow);
+        	.box3 {
+        		@include span(3 of 6);
+        		@include backgroundAndColor(red);
+        	}
+
+        	.box4 {
+        		@include span(3 of 6 last);
+        		@include backgroundAndColor(green);
+
+        		.box41 {
+					@include span(2 of 3);
+					@include backgroundAndColor(grey);
+        		}
+
+        		.box42 {
+					@include span(1 of 3 last);
+					@include backgroundAndColor(black);
+        		}
+        	}
+        }
+    }
+
+    .gallery {
+    	@include container;
+    	.gallery-item {
+    		@include gallery(1 of 8);
+    		@include backgroundAndColor(red);
+    		text-align: center;
+    		min-height: 3em;
+    	}
+    }
 }

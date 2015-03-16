@@ -1,3 +1,43 @@
 .responsive {
-	background-color: yellow;
+    h1 {
+        margin: 3em 0 1em 0;
+    }
+    p {
+        margin: 0 auto;
+        text-align: center;
+    }
+    .phone {
+        color: red;
+    }
+    .tablet {
+        color: blue;
+        display: none;
+    }
+    .desktop {
+        color: green;
+        display: none;
+    }
+    @include respond-to("tablet") {
+        .tablet {
+            display: block;
+        }
+        .phone {
+            display: none;
+        }
+        .desktop {
+            display: none;
+        }
+    }
+
+    @include respond-to("desktop") {
+        .desktop {
+            display: block;
+        }
+        .phone {
+            display: none;
+        }
+        .tablet {
+            display: none;
+        }
+    }
 }

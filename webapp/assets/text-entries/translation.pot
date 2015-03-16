@@ -12,10 +12,6 @@ msgstr ""
 "Language: sv\n"
 "X-Generator: Poedit 1.7.4\n"
 
-#: components/about/about.routes.js:13
-msgid "About"
-msgstr ""
-
 #: shared/shared.config.js:25
 msgid "fmu-route-title/Fmu"
 msgstr ""
@@ -28,10 +24,34 @@ msgstr ""
 msgid "fmu-version/0.0.1"
 msgstr ""
 
+#: components/gulp/gulp.routes.js:13
+msgid "gulp"
+msgstr ""
+
 #: components/home/home.routes.js:13
 msgid "home"
-msgstr "Hem"
+msgstr ""
 
-#: components/about/about.html:4
-msgid "Quang Vu"
+#: components/layout/layout.routes.js:13
+msgid "layout"
+msgstr ""
+
+#: components/layout/layout.html:2
+msgid "Layout using Suzy"
+msgstr ""
+
+#: components/responsive/responsive.routes.js:13
+msgid "responsive"
+msgstr ""
+
+#: components/layout/layout.controller.js:5
+msgid "test"
+msgstr "Test translated"
+
+#: components/translation/translation.routes.js:13
+msgid "translation"
+msgstr ""
+
+#: components/typography/typography.routes.js:13
+msgid "typography"
 msgstr ""

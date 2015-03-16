@@ -40,9 +40,7 @@
     }
 }
 
-@mixin absolutCentering() {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    @include transform(translate(-50%, -50%));
+@mixin backgroundAndColor($bgc) {
+    background-color: $bgc;
+    color: text-contrast($bgc, white);
 }

@@ -1,5 +1,5 @@
 angular.module('r2m').run(['gettextCatalog', function (gettextCatalog) {
 /* jshint -W100 */
-    gettextCatalog.setStrings('sv', {"home":"Hem","Quang Vu":"Jonas Bromö"});
+    gettextCatalog.setStrings('sv', {"test":"Test translated"});
 /* jshint +W100 */
 }]);

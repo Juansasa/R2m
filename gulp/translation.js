@@ -19,7 +19,7 @@ gulp.task('extract-pot', function() {
 });
 
 gulp.task('compile-po', function() {
-    return gulp.src(config.translation.dir + '/*.po')
+    return gulp.src(config.translation.dir + '/*.pot')
         .pipe($.angularGettext.compile({
             module: config.translation.modulename
             // Do this if translation file is too big
